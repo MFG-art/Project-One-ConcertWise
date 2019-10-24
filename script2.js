@@ -16,3 +16,18 @@ $.ajax({
 }).then(function(response) {
   artistID = response.resultsPage.results.artist[0].id;
 });
+
+// Using this URL returns a response element that is used by the Crimometer API
+var queryURL2 =
+  "https://api.songkick.com/api/3.0/artists/{" +
+  artistID +
+  "}/calendar.json?apikey={" +
+  APIkey +
+  "}";
+
+$.ajax({
+  url: queryURL2,
+  method: "GET"
+}).then(function(response) {
+  artistID = response.resultsPage.results.artist[0].id;
+});
