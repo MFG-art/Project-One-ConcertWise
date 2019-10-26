@@ -1,5 +1,5 @@
 var APIKey = "jj9McEqabmQRWhL1nGOKGFZ1PmaWDWjy";
-var keyword = $("#myinput").val().trim();
+var keyword = $("#myInput").val().trim();
 var queryURL =
   "https://app.ticketmaster.com/discovery/v2/attractions?apikey=" + APIKey + "&keyword=" + keyword + "&locale=*";
 
@@ -69,12 +69,12 @@ console.log(response)
 
 $(".submit").on(click,function(event){
 event.preventDefault();
-console.log(artistName);
+console.log(keyword);
 var aritistList =JSON.parse(localStorage.getItem("artists"));
 if (!artistList){
   artistList=[];
 }
-  aritistList.push({artistName})
+  aritistList.push({keyword})
   localStorage.setItem("artists", JSON.stringify(artistList))
   
 })
