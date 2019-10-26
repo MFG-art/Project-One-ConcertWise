@@ -4,6 +4,22 @@
 }
 
 body {
-    background-image: url("./images/yellow.jpg");
+    background-image: url("./images/concert.jpg");
   }
 
+.jumbotron{
+    background-color: none;
+}
+h1{ 
+    
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    color: yellow;
+    
+}
+
+#myInput{
+    padding: 10px;
+     
+    border-radius: 10%;
+}
