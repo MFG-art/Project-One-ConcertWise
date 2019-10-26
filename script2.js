@@ -1,4 +1,4 @@
-var artistName = "Random Name";
+var artistName = $("#myinput").val().trim();
 var APIkey = "APIkey";
 var artistID;
 
@@ -44,11 +44,19 @@ var startDate = endDateMoment().subtract(1,'year')
 var crimeURL = "https://private-anon-a3e5aa58c2-crimeometer.apiary-mock.com/v1/incidents/stats?lat="+lat+"&lon="+lon+"&distance=10mi&datetime_ini="+startDate+"&datetime_end="+endDateMoment+",&source=0"
 
 console.log(crimeURL)
-
+// Crimometer api call
 $.ajax({
 	url: crimeURL,
 	method: "GET"
 }).then(function(response){
 console.log(response)
 });
-// Crimometer api call
+
+$(".submit").on(click,function(event){
+event.preventDefault();
+console.log(artistName);
+var aritistlist =JSON.parse(localStorage.getItem("artists"));
+if (!artistlist){
+  artistlist=[];
+}
+})
