@@ -74,7 +74,7 @@ var aritistList =JSON.parse(localStorage.getItem("artists"));
 if (!artistList){
   artistList=[];
 }
-  aritistList.push({artistName})
+  aritistList.push({keyword})
   localStorage.setItem("artists", JSON.stringify(artistList))
   
 })
