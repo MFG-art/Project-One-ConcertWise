@@ -1,11 +1,7 @@
 var APIKey = "jj9McEqabmQRWhL1nGOKGFZ1PmaWDWjy";
 var keyword = $("#myinput").val().trim();
 var queryURL =
-  "https://app.ticketmaster.com/discovery/v2/attractions?apikey=" +
-  APIKey +
-  "&keyword=" +
-  keyword +
-  "&locale=*";
+  "https://app.ticketmaster.com/discovery/v2/attractions?apikey=" + APIKey + "&keyword=" + keyword + "&locale=*";
 
 var artistID;
 var latArray = [];
