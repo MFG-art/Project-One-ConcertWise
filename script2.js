@@ -55,8 +55,11 @@ console.log(response)
 $(".submit").on(click,function(event){
 event.preventDefault();
 console.log(artistName);
-var aritistlist =JSON.parse(localStorage.getItem("artists"));
-if (!artistlist){
-  artistlist=[];
+var aritistList =JSON.parse(localStorage.getItem("artists"));
+if (!artistList){
+  artistList=[];
 }
+  aritistList.push({artistName})
+  localStorage.setItem("artists", JSON.stringify(artistList))
+  
 })
