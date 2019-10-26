@@ -1,43 +1,43 @@
-var artistName = $("#myinput").val().trim();
-var APIkey = "APIkey";
-var artistID;
+// var artistName = $("#myinput").val().trim();
+// var APIkey = "APIkey";
+// var artistID;
 
-// Using this URL returns a response element that returns the artist ID, needed by other endpoints/AJAX calls.
-var queryURL =
-  "https://api.songkick.com/api/3.0/search/artists.json?apikey={" +
-  APIkey +
-  "}&query={" +
-  artistName +
-  "}";
+// // Using this URL returns a response element that returns the artist ID, needed by other endpoints/AJAX calls.
+// var queryURL =
+//   "https://api.songkick.com/api/3.0/search/artists.json?apikey={" +
+//   APIkey +
+//   "}&query={" +
+//   artistName +
+//   "}";
 
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function(response) {
-  artistID = response.resultsPage.results.artist[0].id;
-});
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// }).then(function(response) {
+//   artistID = response.resultsPage.results.artist[0].id;
+// });
 
-// Using this URL returns a response element that is used by the Crimometer API
-var queryURL2 =
-  "https://api.songkick.com/api/3.0/artists/{" +
-  artistID +
-  "}/calendar.json?apikey={" +
-  APIkey +
-  "}";
+// // Using this URL returns a response element that is used by the Crimometer API
+// var queryURL2 =
+//   "https://api.songkick.com/api/3.0/artists/{" +
+//   artistID +
+//   "}/calendar.json?apikey={" +
+//   APIkey +
+//   "}";
 
-var lat
-var lon
-var endDateString
+// var lat
+// // var lon
+// var endDateString
 
-$.ajax({
-  url: queryURL2,
-  method: "GET"
-}).then(function(response) {
-  lat = response.resultsPage.results.event[0].location.lat
-  lon = response.resultsPage.results.event[0].location.lng
-  endDateString = response.resultsPage.results.event[0].start.date
+// $.ajax({
+//   url: queryURL2,
+//   method: "GET"
+// }).then(function(response) {
+//   lat = response.resultsPage.results.event[0].location.lat
+//   lon = response.resultsPage.results.event[0].location.lng
+//   endDateString = response.resultsPage.results.event[0].start.date
 
-});
+// });
 
 var endDateMoment = moment(endDateString, YYYY-MM-DD)
 var startDate = endDateMoment().subtract(1,'year')
@@ -63,3 +63,4 @@ if (!artistList){
   localStorage.setItem("artists", JSON.stringify(artistList))
   
 })
+
