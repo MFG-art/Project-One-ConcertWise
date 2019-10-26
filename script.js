@@ -69,7 +69,7 @@ console.log(response)
 
 $(".submit").on(click,function(event){
 event.preventDefault();
-console.log(artistName);
+console.log(keyword);
 var aritistList =JSON.parse(localStorage.getItem("artists"));
 if (!artistList){
   artistList=[];
