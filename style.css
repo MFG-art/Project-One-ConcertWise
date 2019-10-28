@@ -4,21 +4,36 @@
 }
 
 body {
-    background-image: url("./images/concert.jpg");
+    
+    background-color: white;
   }
-
+img{
+    max-width: 10%;
+    height: auto;
+}
 
 h1{ 
     
-    font-family: 'Monoton', cursive;
+    font-family: 'Ramabhadra', sans-serif;
     text-align: center;
-    color: yellow;
-    letter-spacing: 10px;
+    color: black;
+    letter-spacing: 20px;
     
 }
 
-#myInput{
+
+#myinput{
     padding: 10px;
-     
-    border-radius: 10%;
+    border-color:black;
+    border-width: thin;
+    
+    
+}
+
+.submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    
+    
 }
