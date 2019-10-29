@@ -1,23 +1,32 @@
 .safetyrating{
     float: right;
-    background-color:blue;
+   
 }
 
-body {
-    
-    background-color: white;
-  }
+
 img{
     max-width: 10%;
     height: auto;
+}
+
+.bgimage{
+    background-image: url("./images/powder.jpg");
+    
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
 }
 
 h1{ 
     
     font-family: 'Ramabhadra', sans-serif;
     text-align: center;
-    color: black;
-    letter-spacing: 20px;
+    color: white;
+    letter-spacing: 15px;
+    
+    
     
 }
 
@@ -37,3 +46,26 @@ h1{
     
     
 }
+
+th{
+    color: white;
+}
+
+@media only screen and (max-width:980px) {
+    .myBody {
+        
+        font-family: Arial, Helvetica, sans-serif
+    }
+   }
+   @media only screen and (max-width:768px ){
+       .myBody{
+           
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       }
+   }
+   @media only screen and (max-width:640px ){
+       .myBody{
+           
+           font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+       }
+   }
