@@ -92,9 +92,8 @@ $.ajax({
     "&datetime_end=" +
     endDateMoment +
     ",&source=0"
-}).then(function(response) {
-  console.log(response);
-});
+    
+})
 
 $(".submit").on("click", function(event) {
   event.preventDefault();
@@ -104,4 +103,69 @@ $(".submit").on("click", function(event) {
   }
   artistList.push({ keyword });
   localStorage.setItem("artists", JSON.stringify(artistList));
+
+  Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false
+    },
+    title: {
+        text: 'Crimes<br>',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 60
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%'],
+            size: '110%'
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Crime Percentage',
+        innerSize: '50%',
+        data: [
+            [other, otherNum],
+            [theft, theftNum],
+            [assault, assaultNum],
+        ]
+    }]
 });
+});
+
+var other;
+var otherNum;
+var theft;
+var theftNum;
+var assault;
+var assaultNum;
+
+console.log(crimeURL)
+
+other = response[0].report_types[0].type
+otherNum = response[0].report_types[0].count
+console.log(other)
+console.log(otherNum)
+
+theft = response[0].report_types[1].type
+theftNum = response[0].report_types[1].count
+
+
+assault = response[0].report_types[2].type
+assaultNum = response[0].report_types[2].count
+
