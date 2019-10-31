@@ -1,5 +1,5 @@
 var APIKey = "jj9McEqabmQRWhL1nGOKGFZ1PmaWDWjy";
-var keyword = "twenty one pilots";
+var keyword = "Twenty One Pilots";
 keyword = encodeURI(keyword);
 var queryURL = "https://app.ticketmaster.com/discovery/v2/attractions?";
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
@@ -15,6 +15,7 @@ var eventURL = [];
 var endDateString = [];
 
 // This AJAX call takes the user input and returns the artist ID
+
 $.ajax({
   url: proxy + queryURL,
   method: "GET",
@@ -59,6 +60,8 @@ function getEvents() {
         eventName[i] = data._embedded.events[i].name;
         venueName[i] = data._embedded.events[i]._embedded.venues[0].name;
         venueCity[i] = data._embedded.events[i]._embedded.venues[0].city;
+        console.log(data._embedded.events[i]._embedded.venues[0].city);
+        localStorage.setItem("city",data._embedded.events[i]._embedded.venues[0].city.name);
         streetAddress[i] =
           data._embedded.events[i]._embedded.venues[0].address.line1;
         eventURL = data._embedded.events[i].url;
@@ -127,6 +130,14 @@ $(".submit").on("click", function(event) {
   }
   artistList.push({ keyword });
   localStorage.setItem("artists", JSON.stringify(artistList));
+  
+  // $(artistName).append("#newArtist");
+  $("#newArtist").append(artistName);
+  var ticketmaster = $("<a>");
+  $(ticketmaster).html("Buy Tickets Here").attr('href', eventURL);
+  $("#tickets").append(ticketmaster);
+
+
 
   Highcharts.chart("container", {
     chart: {
@@ -135,7 +146,7 @@ $(".submit").on("click", function(event) {
       plotShadow: false
     },
     title: {
-      text: "Crimes<br>Chicago<br>Total 1,112",
+      text: "Crimes<br>" + localStorage.getItem("city") + "<br>Total 1,112",
       align: "center",
       verticalAlign: "middle",
       y: 60
