@@ -135,7 +135,7 @@ $(".submit").on("click", function(event) {
       plotShadow: false
     },
     title: {
-      text: "Crimes<br>Total 1,112",
+      text: "Crimes<br>Chicago<br>Total 1,112",
       align: "center",
       verticalAlign: "middle",
       y: 60
