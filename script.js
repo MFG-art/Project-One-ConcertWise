@@ -164,7 +164,7 @@ $(".submit").on("click", function(event) {
         type: "pie",
         name: "Crime Percentage",
         innerSize: "50%",
-        data: [[other, otherNum], [theft, theftNum], [assault, assaultNum]]
+        data: [[other, 576], [theft, 334], [assault, 202]]
       }
     ]
   });
