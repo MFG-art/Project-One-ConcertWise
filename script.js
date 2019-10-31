@@ -107,7 +107,6 @@ function crimeAPI() {
       console.log(latArray[0]);
       console.log(lngArray[0]);
       console.log(data);
-      console.log("crime api loop works!");
       other[0] = data[0].report_types[0].type;
       otherNum[0] = data[0].report_types[0].count;
       theft[0] = data[0].report_types[1].type;
