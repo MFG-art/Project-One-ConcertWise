@@ -135,7 +135,7 @@ $(".submit").on("click", function(event) {
       plotShadow: false
     },
     title: {
-      text: "Crimes<br>",
+      text: "Crimes<br>Total 1,112",
       align: "center",
       verticalAlign: "middle",
       y: 60
@@ -164,7 +164,7 @@ $(".submit").on("click", function(event) {
         type: "pie",
         name: "Crime Percentage",
         innerSize: "50%",
-        data: [[other, 576], [theft, 334], [assault, 202]]
+        data: [['Other', 576], ['Theft', 334], ['Assault', 202]]
       }
     ]
   });
