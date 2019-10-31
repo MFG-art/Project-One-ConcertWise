@@ -85,7 +85,7 @@ function crimeAPI() {
   var endDateMoment = moment(endDateString[0], "YYYY-MM-DD");
   var startDate = endDateMoment.subtract(1, "year");
   var crimeURL =
-    "https://private-anon-a3e5aa58c2-crimeometer.apiary-mock.com/v1/incidents/stats?";
+    "https://private-anon-baa30e29b2-crimeometer.apiary-mock.com/v1/incidents/stats?";
   let lat = latArray[0];
   let lng = lngArray[0];
   $.ajax({
@@ -114,140 +114,59 @@ function crimeAPI() {
       theftNum[0] = data[0].report_types[1].count;
       assault[0] = data[0].report_types[2].type;
       assaultNum[0] = data[0].report_types[2].count;
-      crimeAPIcall2();
     },
     error: function() {
       console.log("error with crime api loop");
     }
   });
-  function crimeAPIcall2() {
-    var endDateMoment = moment(endDateString[1], "YYYY-MM-DD");
-    var startDate = endDateMoment.subtract(1, "year");
-    var crimeURL =
-      "https://private-anon-a3e5aa58c2-crimeometer.apiary-mock.com/v1/incidents/stats?";
-    let lat1 = latArray[1];
-    let lng1 = lngArray[1];
-    $.ajax({
-      url: proxy + crimeURL,
-      method: "GET",
-      dataType: "json",
-      data:
-        "lat=" +
-        lat1 +
-        "&lon=" +
-        lng1 +
-        "&distance=10mi&datetime_ini=" +
-        startDate +
-        "&datetime_end=" +
-        endDateMoment +
-        ",&source=0",
-      success: function(data) {
-        console.log(venueCity[1]);
-        console.log(latArray[1]);
-        console.log(lngArray[1]);
-        console.log(data);
-        console.log("crime api loop works!");
-        other[1] = data[0].report_types[0].type;
-        otherNum[1] = data[0].report_types[0].count;
-        theft[1] = data[0].report_types[1].type;
-        theftNum[1] = data[0].report_types[1].count;
-        assault[1] = data[0].report_types[2].type;
-        assaultNum[1] = data[0].report_types[2].count;
-        crimeAPIcall3();
-      },
-      error: function() {
-        console.log("error with crime api loop");
-      }
-    });
-  }
-  function crimeAPIcall3() {
-    var endDateMoment = moment(endDateString[2], "YYYY-MM-DD");
-    var startDate = endDateMoment.subtract(1, "year");
-    var crimeURL =
-      "https://private-anon-a3e5aa58c2-crimeometer.apiary-mock.com/v1/incidents/stats?";
-    let lat2 = latArray[2];
-    let lng2 = lngArray[2];
-    $.ajax({
-      url: proxy + crimeURL,
-      method: "GET",
-      dataType: "json",
-      data:
-        "lat=" +
-        lat2 +
-        "&lon=" +
-        lng2 +
-        "&distance=10mi&datetime_ini=" +
-        startDate +
-        "&datetime_end=" +
-        endDateMoment +
-        ",&source=0",
-      success: function(data) {
-        console.log(venueCity[2]);
-        console.log(latArray[2]);
-        console.log(lngArray[2]);
-        console.log(data);
-        console.log("crime api loop works!");
-        other[2] = data[0].report_types[0].type;
-        otherNum[2] = data[0].report_types[0].count;
-        theft[2] = data[0].report_types[1].type;
-        theftNum[2] = data[0].report_types[1].count;
-        assault[2] = data[0].report_types[2].type;
-        assaultNum[2] = data[0].report_types[2].count;
-      },
-      error: function() {
-        console.log("error with crime api loop");
-      }
-    });
-  }
-
-  $(".submit").on("click", function(event) {
-    event.preventDefault();
-    var artistList = JSON.parse(localStorage.getItem("artists"));
-    if (!artistList) {
-      artistList = [];
-    }
-    artistList.push({ keyword });
-    localStorage.setItem("artists", JSON.stringify(artistList));
-
-    Highcharts.chart("container", {
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: 0,
-        plotShadow: false
-      },
-      title: {
-        text: "Crimes<br>",
-        align: "center",
-        verticalAlign: "middle",
-        y: 60
-      },
-      tooltip: {
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
-      },
-      plotOptions: {
-        pie: {
-          dataLabels: {
-            enabled: true,
-            distance: -50,
-            style: {
-              fontWeight: "bold",
-              color: "white"
-            }
-          },
-          startAngle: -90,
-          endAngle: 90,
-          center: ["50%", "75%"],
-          size: "110%"
-        }
-      },
-      series: [
-        {
-          type: "pie",
-          name: "Crime Percentage",
-          innerSize: "50%",
-          data: [[other, otherNum], [theft, theftNum], [assault, assaultNum]]
-        }
-      ]
-    });
-  });
 }
+$(".submit").on("click", function(event) {
+  event.preventDefault();
+  var artistList = JSON.parse(localStorage.getItem("artists"));
+  if (!artistList) {
+    artistList = [];
+  }
+  artistList.push({ keyword });
+  localStorage.setItem("artists", JSON.stringify(artistList));
+
+  Highcharts.chart("container", {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+    },
+    title: {
+      text: "Crimes<br>",
+      align: "center",
+      verticalAlign: "middle",
+      y: 60
+    },
+    tooltip: {
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+    },
+    plotOptions: {
+      pie: {
+        dataLabels: {
+          enabled: true,
+          distance: -50,
+          style: {
+            fontWeight: "bold",
+            color: "white"
+          }
+        },
+        startAngle: -90,
+        endAngle: 90,
+        center: ["50%", "75%"],
+        size: "110%"
+      }
+    },
+    series: [
+      {
+        type: "pie",
+        name: "Crime Percentage",
+        innerSize: "50%",
+        data: [[other, otherNum], [theft, theftNum], [assault, assaultNum]]
+      }
+    ]
+  });
+});
