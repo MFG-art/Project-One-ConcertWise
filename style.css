@@ -1,53 +1,30 @@
 .safetyrating{
     float: right;
-   
+    background-color:blue;
 }
 
-
+body {
+    
+    background-color: white;
+  }
 img{
     max-width: 10%;
     height: auto;
-}
-
-#bg{
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-}
-
-#bg img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%;
 }
 
 h1{ 
     
     font-family: 'Ramabhadra', sans-serif;
     text-align: center;
-    color: white;
-    letter-spacing: 15px;
-    
-    
+    color: black;
+    letter-spacing: 20px;
     
 }
 
-.cityresultone {
-    text-align: center;
-
-    
-}
 
 #myinput{
     padding: 10px;
-    border-color: black;
+    border-color:black;
     border-width: thin;
     
     
@@ -56,30 +33,7 @@ h1{
 .submit{
     margin-top: 10px;
     margin-bottom: 10px;
-    border-color:black;
+    border-color: black;
     
     
 }
-
-th{
-    color: white;
-}
-
-@media only screen and (max-width:980px) {
-    .myBody {
-        
-        font-family: Arial, Helvetica, sans-serif
-    }
-   }
-   @media only screen and (max-width:768px ){
-       .myBody{
-           
-           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-       }
-   }
-   @media only screen and (max-width:640px ){
-       .myBody{
-           
-           font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-       }
-   }
